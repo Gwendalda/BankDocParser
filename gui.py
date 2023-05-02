@@ -13,7 +13,7 @@ elif platform.system() == '':
     path = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
 
 
-def openFile():
+def main():
     filepath = filedialog.askopenfilenames(
         initialdir=path, title="Convert to excel", filetypes=(("Pdf Files", "*.pdf"),))
     if filepath:
@@ -22,4 +22,4 @@ def openFile():
 
 
 if __name__ == "__main__":
-    openFile()
+    main()

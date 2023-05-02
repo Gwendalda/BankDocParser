@@ -1,5 +1,5 @@
 pydocparser
-tktinter
+tkinter
 xlsxwriter
 openpyxl
 json
