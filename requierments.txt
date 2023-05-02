@@ -1,0 +1,5 @@
+pydocparser
+tktinter
+xlsxwriter
+openpyxl
+json
