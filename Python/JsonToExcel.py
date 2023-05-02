@@ -17,8 +17,13 @@ COLUMNS = {"DATE DE L'OPÉRATION": 0,
            "REGIME DE TAXE": 9,
            "COMPTE": 10
            }
-ACC_HIST_PATH = "{0}/../../../data/accountHistory.json".format(
-    os.path.dirname(__file__))
+base_path = getattr(sys, '_MEIPASS', os.path.dirname(
+    os.path.abspath(__file__)))
+
+# Construct the full path to the JSON file
+ACC_HIST_PATH = os.path.join(base_path, 'accountHistory.json')
+
+
 DATE_OPERATION_KEY = "date_operation"
 DATE_INSCRIPTION_KEY = "date_inscription"
 DESCRIPTION_KEY = "description"

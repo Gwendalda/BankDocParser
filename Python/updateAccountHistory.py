@@ -6,15 +6,10 @@ import os
 from JsonToExcel import *
 import platform
 
-if platform.system() == 'Darwin':
-    ACCOUNT_HISTORY_PATH = "{0}/../data/accountHistory.json".format(
-        os.path.dirname(__file__))
-elif platform.system() == 'Windows':
-    ACCOUNT_HISTORY_PATH = "{0}\..\data\accountHistory.json".format(
-        os.path.dirname(__file__))
-else:
-    ACCOUNT_HISTORY_PATH = "{0}/../data/accountHistory.json".format(
-        os.path.dirname(__file__))
+
+base_path = getattr(sys, '_MEIPASS', os.path.dirname(
+    os.path.abspath(__file__)))
+ACCOUNT_HISTORY_PATH = os.path.join(base_path, 'accountHistory.json')
 
 
 def updateMemory(filePATH):
