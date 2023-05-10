@@ -2,7 +2,7 @@ import pydocparser
 import os
 import json
 import time
-from app.JsonToExcel.JsonToExcel import jsonParser
+from JsonToExcel import jsonParser
 
 
 def sendFilesToDocParser(files):
