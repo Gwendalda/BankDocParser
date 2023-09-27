@@ -50,6 +50,11 @@ def upload():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
             sendFilesToDocParser(
                 [os.path.join(app.config['UPLOAD_FOLDER'], file.filename)])
+            # remove all the files that end in .json and .pdf
+            for filename in os.listdir(app.config['UPLOAD_FOLDER']):
+                if os.path.isfile(os.path.join(app.config['UPLOAD_FOLDER'], filename)) and (".json" in filename or ".pdf" in filename):
+                    os.remove(os.path.join(
+                        app.config['UPLOAD_FOLDER'], filename))
 
     flash('File(s) successfully uploaded')
     return redirect('/')
@@ -69,4 +74,4 @@ if __name__ == '__main__':
     app.config['UPLOAD_FOLDER'] = 'ressources/uploads'
     app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
     app.secret_key = "1234567890"
-    app.run(debug=True)
+    app.run(debug=True, host='35.215.7.79', port=5000)

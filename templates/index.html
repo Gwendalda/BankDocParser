@@ -8,6 +8,25 @@
 </head>
 
 <body class="bg-dark-subtle">
+    <script>
+        if (document.cookie.indexOf("password") >= 0) {
+            console.log("cookie found")
+        } else {
+            var password = prompt("Enter password to access the page : ")
+            while (password != "Bonjour02") {
+                password = prompt("Enter password to access the page : ")
+            }
+        }
+
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        setCookie("password", password, 1);
+
+    </script>
     <div class="container text-white">
         <div class="text-center">
             <h1>Bank Document Parser</h1>
