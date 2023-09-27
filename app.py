@@ -74,4 +74,4 @@ if __name__ == '__main__':
     app.config['UPLOAD_FOLDER'] = 'ressources/uploads'
     app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
     app.secret_key = "1234567890"
-    app.run(debug=True, host='35.215.7.79', port=80)
+    app.run(debug=True, host='10.162.0.2', port=80)
