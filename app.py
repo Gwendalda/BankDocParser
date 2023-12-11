@@ -5,7 +5,7 @@ import zipfile
 from docparser import sendFilesToDocParser
 
 app = Flask(__name__)
-
+app.config['UPLOAD_FOLDER'] = 'ressources/uploads'
 
 def get_filenames():
     files = []
@@ -74,4 +74,4 @@ if __name__ == '__main__':
     app.config['UPLOAD_FOLDER'] = 'ressources/uploads'
     app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
     app.secret_key = "1234567890"
-    app.run(debug=True)
+    app.run(port=5000, host='0.0.0.0', debug=True)
