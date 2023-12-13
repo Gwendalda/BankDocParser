@@ -3,9 +3,23 @@ from flask import Flask, render_template, request, redirect, flash, send_file
 import os
 import zipfile
 from docparser import sendFilesToDocParser
+import logging
+from logging.handlers import TimedRotatingFileHandler
+
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'ressources/uploads'
+
+log_filename = '/Users/gwendal_delisle-arnold/Desktop/Projets/BankDocParserApplication/BankDocParser/logs/log.log'
+logger = logging.getLogger('werkzeug')  # Logger for Flask/Werkzeug
+handler = TimedRotatingFileHandler(
+    log_filename, when="M", interval=5, backupCount=0)
+handler.setLevel(logging.INFO)
+formatter = logging.Formatter('%(asctime)s: %(message)s')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
+app.logger.addHandler(handler)
+
 
 def get_filenames():
     files = []
