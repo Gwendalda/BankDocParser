@@ -10,7 +10,7 @@ from logging.handlers import TimedRotatingFileHandler
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'ressources/uploads'
 
-log_filename = '/Users/gwendal_delisle-arnold/Desktop/Projets/BankDocParserApplication/BankDocParser/logs/log.log'
+log_filename = '~/BankDocParser/logs/log.log'
 logger = logging.getLogger('werkzeug')  # Logger for Flask/Werkzeug
 handler = TimedRotatingFileHandler(
     log_filename, when="M", interval=5, backupCount=0)
